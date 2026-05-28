@@ -1,0 +1,26 @@
+name: Node.js CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 1. 拉取代码
+      uses: actions/checkout@v3
+
+    - name: 2. 安装 Node.js 环境
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+
+    - name: 3. 安装依赖 (npm install)
+      run: npm install
+      working-directory: ./src/server
+
+    - name: 4. 运行自动化测试
+      run: npm test
+      working-directory: ./src/server
