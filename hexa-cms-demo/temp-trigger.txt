@@ -1,0 +1,2 @@
+This is a temporary file to trigger GitHub Actions
+Created to test CI/CD pipeline deployment
