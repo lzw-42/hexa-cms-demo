@@ -1,9 +1,17 @@
 name: Node.js CI/CD Pipeline
 
-# 触发器：当发生向 main 分支的 push 操作时，启动该工作流
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
 
 # 定义 jobs（任务）：
 # 每个 job 代表一个独立的任务，多个 job 可以并行执行
