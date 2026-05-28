@@ -8,24 +8,15 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-# 定义 jobs（任务）：
-# 每个 job 代表一个独立的任务，多个 job 可以并行执行
-jobs:
-  build-and-test:
     name: 构建与测试
     runs-on: ubuntu-latest
 
     steps:
     - name: 1. 拉取代码
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: 2. 安装 Node.js 环境
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18.x'
 
