@@ -1,11 +1,15 @@
 name: Node.js CI/CD Pipeline
 
+# 触发器：当发生向 main 分支的 push 操作时，启动该工作流
 on:
   push:
     branches: [ "main" ]
 
+# 定义 jobs（任务）：
+# 每个 job 代表一个独立的任务，多个 job 可以并行执行
 jobs:
   build-and-test:
+    name: 构建与测试
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +21,10 @@ jobs:
       with:
         node-version: '18.x'
 
-    - name: 3. 安装依赖 (npm install)
+    - name: 3. 安装依赖
       run: npm install
       working-directory: ./src/server
 
-    - name: 4. 运行自动化测试
+    - name: 4. 运行测试
       run: npm test
       working-directory: ./src/server
